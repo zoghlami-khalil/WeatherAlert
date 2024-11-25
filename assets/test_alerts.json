@@ -1,0 +1,46 @@
+{
+  "alerts": [
+    {
+      "description": "* WHAT...Flooding caused by excessive rainfall is expected.\n\n* WHERE...A portion of east central Florida, including the following\ncounties, Lake, Orange and Seminole.",
+      "effective_local": "2024-08-22T16:19:00",
+      "ends_local": "2024-08-22T18:15:00",
+      "severity": "Advisory",
+      "title": "Flood Advisory issued August 22",
+      "regions": ["Lake, FL", "Orange, FL", "Seminole, FL"]
+    },
+    {
+      "description": "* WHAT...Hurricane-force winds are expected.\n\n* WHERE...Coastal regions of South Carolina and Georgia.\n\n* WHEN...Starting at 10:00 AM EDT, August 23.\n\n* IMPACTS...Significant damage to trees, roofs, and power lines.",
+      "effective_local": "2024-08-23T10:00:00",
+      "ends_local": "2024-08-23T22:00:00",
+      "severity": "Warning",
+      "title": "Hurricane Warning issued August 22",
+      "regions": ["Charleston, SC", "Savannah, GA", "Hilton Head, SC"]
+    },
+    {
+      "description": "* WHAT...Severe thunderstorms with large hail and damaging winds.\n\n* WHERE...Western Oklahoma and northern Texas.\n\n* WHEN...Until 8:00 PM CDT, August 24.\n\n* IMPACTS...Hail up to 2 inches in diameter and wind gusts up to 70 mph.",
+      "effective_local": "2024-08-24T14:00:00",
+      "ends_local": "2024-08-24T20:00:00",
+      "severity": "Emergency",
+      "title": "Severe Thunderstorm Emergency issued August 24",
+      "regions": ["Oklahoma City, OK", "Wichita Falls, TX"]
+    },
+    {
+      "description": "* WHAT...Extreme heat and dangerously high temperatures.\n\n* WHERE...Central Arizona, including the Phoenix metro area.\n\n* WHEN...Daily from 10:00 AM to 8:00 PM MST through August 30.\n\n* IMPACTS...Heat-related illnesses are likely for those spending extended time outdoors or without access to air conditioning.",
+      "effective_local": "2024-08-22T10:00:00",
+      "ends_local": "2024-08-30T20:00:00",
+      "severity": "Advisory",
+      "title": "Excessive Heat Advisory issued August 22",
+      "regions": ["Phoenix, AZ", "Mesa, AZ", "Scottsdale, AZ"]
+    },
+    {
+      "description": "* WHAT...Blizzard conditions expected with near-zero visibility.\n\n* WHERE...Eastern Montana and western North Dakota.\n\n* WHEN...From 6:00 PM MDT August 25 to 6:00 AM MDT August 27.\n\n* IMPACTS...Travel will be very difficult to impossible due to heavy snow and strong winds.",
+      "effective_local": "2024-08-25T18:00:00",
+      "ends_local": "2024-08-27T06:00:00",
+      "severity": "Warning",
+      "title": "Blizzard Warning issued August 25",
+      "regions": ["Billings, MT", "Dickinson, ND"]
+    }
+  ],
+  "city_name": "Orlando",
+  "state_code": "FL"
+}
