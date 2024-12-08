@@ -19,8 +19,10 @@ class SidebarWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
-          // Static Icon (Lightbulb)
-          Icon(Icons.lightbulb, color: Colors.yellow, size: 30),
+          // Static Icon
+          Icon(Icons.thunderstorm, color: Colors.lightBlueAccent, size: 30),
+          SizedBox(height: 10),
+          Divider(color: Colors.white24, thickness: 1), // Separator line
           SizedBox(height: 20),
 
           // Home Icon
