@@ -1,30 +1,65 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:weather_alert/main.dart';
+import 'package:weather_alert/screens/login_screen.dart';
+import 'package:weather_alert/screens/screen_one.dart';
+import 'package:weather_alert/screens/screen_two.dart';
+import 'package:weather_alert/widgets/sidebar_widget.dart';
+import 'package:weather_alert/weather_app_state.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  group('Weather Alert App Tests', () {
+    Widget buildTestableApp(Widget child) {
+      return WeatherAppState(
+        cityName: "Rochester",
+        updateCityName: (newCity) {},
+        child: MaterialApp(home: child),
+      );
+    }
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    testWidgets('Login page loads correctly', (WidgetTester tester) async {
+      await tester.pumpWidget(MaterialApp(home: LoginScreen()));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      expect(find.text("Severe Weather Events Alerts"), findsOneWidget);
+      expect(find.text("Emergency Manager"), findsOneWidget);
+      expect(find.text("Meteorologist"), findsOneWidget);
+      expect(find.text("Username"), findsOneWidget);
+      expect(find.text("Password"), findsOneWidget);
+      expect(find.text("Login"), findsOneWidget);
+    });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    testWidgets('Login succeeds with correct credentials', (WidgetTester tester) async {
+      await tester.pumpWidget(MaterialApp(home: LoginScreen()));
+
+      await tester.enterText(find.byType(TextField).at(0), "admin1");
+      await tester.enterText(find.byType(TextField).at(1), "root");
+      await tester.tap(find.text("Login"));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(MainLayout), findsOneWidget);
+    });
+
+    testWidgets('Search for a city and verify weather data', (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableApp(MainLayout()));
+      await tester.pumpAndSettle();
+
+      expect(find.text("Rochester"), findsOneWidget);
+
+      await tester.enterText(find.byType(TextField), "Los Angeles");
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pumpAndSettle();
+
+      expect(find.text("Los Angeles"), findsOneWidget);
+    });
+
+    testWidgets('Navigate to alerts and verify data for Los Angeles', (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableApp(MainLayout()));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byIcon(Icons.notification_important));
+      await tester.pumpAndSettle();
+
+      expect(find.text("Weather Alerts for Los Angeles"), findsOneWidget);
+    });
   });
 }

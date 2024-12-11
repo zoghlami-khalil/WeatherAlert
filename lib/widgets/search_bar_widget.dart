@@ -38,7 +38,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                 ),
                 onSubmitted: (text) {
                   widget.onSearch(text);
-                  _controller.clear(); // Clear the input after submission
+                  _controller.clear();
                 },
               ),
             ),

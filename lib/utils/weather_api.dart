@@ -40,7 +40,6 @@ class WeatherAPI {
     }
   }
 
-  /// Fetch weather alerts
   static Future<List<Map<String, dynamic>>?> fetchAlerts(String city) async {
     final url = Uri.parse("$baseUrl/alerts?city=$city&key=$apiKey");
     try {
